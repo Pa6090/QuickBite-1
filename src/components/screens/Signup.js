@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../Navbar.js';
-import dotenv from 'dotenv';
 
-dotenv.config()
 export default function Signup() {
     
     const [credentials, setCredentials] = useState({name:"", username:"", password:"", location:""});
@@ -11,7 +9,7 @@ export default function Signup() {
     const handleSubmit = async (e) => {
         console.log("inside handle submit")
         e.preventDefault();
-        const resp = await fetch(`${process.env.BACKEND}/api/createUser`, {
+        const resp = await fetch('https://quickbite-uvnc.onrender.com/api/createUser', {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json' 

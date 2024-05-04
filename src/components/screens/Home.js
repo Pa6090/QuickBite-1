@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../Navbar.js'
 import Footer from '../Footer.js'
 import Card from '../Card.js'
-import dotenv from 'dotenv';
 
-dotenv.config()
 export default function Home() {
 
     const [foodCategory, setFoodCategory] = useState([]);
@@ -12,7 +10,7 @@ export default function Home() {
     const [search, setSearch] = useState('');
 
     const loadOnStart = async () => {
-        let resp = await fetch(`${process.env.BACKEND}/items/foodData`, {
+        let resp = await fetch('https://quickbite-uvnc.onrender.com/items/foodData', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
